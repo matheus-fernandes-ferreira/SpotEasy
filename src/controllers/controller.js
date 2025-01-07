@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Carregar as configurações ao iniciar
     loadConfigurations();
 
-    // Função para salvar configurações
+    // Função para salvar 
    document.getElementById("btn-checkin").addEventListener("click", async (event) => {
     event.preventDefault();
 
@@ -158,7 +158,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         loadVagasData();
     }
 
-    // Chame a função explicitamente no final do script ou em outro local
     carregarDadosVagas();
 
 

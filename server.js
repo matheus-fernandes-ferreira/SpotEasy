@@ -101,6 +101,22 @@ app.delete('/veiculos/:id', async (req, res) => {
     }
 });
 
+//Rota de Busca por ID
+app.get('/veiculos/:id', async (req, res) => {
+    try {
+      const veiculo = await prisma.veiculo.findUnique({
+        where: { id: req.params.id }
+      });
+  
+      if (!veiculo) {
+        return res.status(404).json({ error: 'Veículo não encontrado.' });
+      }
+  
+      res.status(200).json(veiculo);
+    } catch (error) {
+      res.status(500).json({ error: 'Erro ao buscar veículo.' });
+    }
+  });
 
 // ===================== ESTACIONAMENTO =====================
 
@@ -378,3 +394,5 @@ app.delete('/checkins/:id', async (req, res) => {
 app.listen(3005, () => {
     console.log('Servidor rodando na porta 3005.');
 });
+
+export default app;
